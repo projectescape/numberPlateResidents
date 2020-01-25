@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from "react-native";
 import MyHeader from '../components/MyHeader'
-//import Toast from 'react-native-simple-toast'
+import Toast from 'react-native-simple-toast'
 import { Button } from 'react-native-elements';
 
 const SendRequest = props => {
@@ -33,7 +33,7 @@ const SendRequest = props => {
                         <Button
                             onPress={() => {
                                 props.navigation.navigate('Home')
-                                // Toast.show('Request Sent!')
+                                Toast.show('Request Sent!')
                             }}
                             icon={{
                                 name: "send",

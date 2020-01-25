@@ -1,8 +1,5 @@
-import React from 'react';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import SearchScreen from './src/screens/SearchScreen';
 import Home from './src/screens/Home'
 import History from './src/screens/History'
 import SendRequest from './src/screens/SendRequest'
@@ -19,23 +16,24 @@ import LogIn from './src/screens/LogIn'
 //     }
 //   });
 
+
 const navigator = createDrawerNavigator({
   // 'Log Out': {
   //   screen: LogIn
   // },
-  Home: {
-    screen: Home
-  },
-  History: {
-    screen: History
-  },
-  'Send Request': {
-    screen: SendRequest
-  },
-  'Log Out': {
-    screen: Home
-  }
+  Home: Home,
+  History: History,
+  'Send Request': SendRequest,
+  'Log Out': LogIn
 });
 
 
-export default createAppContainer(navigator);
+const HomeSwitchNavigator = createSwitchNavigator({
+  LogIn: LogIn,
+  Home: navigator
+}
+);
+
+
+
+export default createAppContainer(HomeSwitchNavigator);
